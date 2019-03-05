@@ -1,6 +1,6 @@
 {
   "name": "chainlink-test-helpers",
-  "version": "0.6.0-3",
+  "version": "0.6.0-4",
   "description": "Helpers for testing Chainlinked contracts",
   "main": "cl-helpers.js",
   "scripts": {

@@ -43,8 +43,14 @@ request = h.decodeRunRequest(tx.receipt.rawLogs[3]);
 await h.fulfillOracleRequest(oc, request, response, {from: oracleNode});
 ```
 
+#### increaseBlocks
+
+```javascript
+h.increaseBlocks(25)
+```
+
 #### increaseTime5Minutes
 
 ```javascript
-await h.increaseTime5Minutes();
+h.increaseTime5Minutes();
 ```

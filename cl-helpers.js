@@ -33,22 +33,22 @@ const toHexWithoutPrefix = arg => {
 		return Buffer.from(arg, "ascii").toString("hex");
 	}
 };
-	
+
 const toHex = value => {
 	return Ox(toHexWithoutPrefix(value));
 };
-	
+
 const Ox = value => ("0x" !== value.slice(0, 2)) ? `0x${value}` : value;
 const startMapBuffer = Buffer.from([0xBF]);
 const endMapBuffer = Buffer.from([0xFF]);
 
 const autoAddMapDelimiters = (data) => {
 	let buffer = data;
-	
+
 	if (buffer[0] >> 5 !== 5) {
 		buffer = Buffer.concat([startMapBuffer, buffer, endMapBuffer], buffer.length + 2);
 	}
-	
+
 	return buffer;
 };
 
@@ -108,7 +108,24 @@ const increaseTime5Minutes = async () => {
 	});
 };
 
+const increaseBlocks = async (blocks) => {
+	for (let i = 0; i < blocks; i++) {
+		await web3.currentProvider.send({
+			id: 0,
+			jsonrpc: "2.0",
+			method: "evm_mine",
+		}, (error, result) => {
+			if (error) {
+				// eslint-disable-next-line no-console
+				console.log(`Error during helpers.increaseBlocks! ${error}`);
+				throw error;
+			}
+		});
+	}
+};
+
 exports.assertActionThrows = assertActionThrows;
 exports.decodeRunRequest = decodeRunRequest;
 exports.fulfillOracleRequest = fulfillOracleRequest;
 exports.increaseTime5Minutes = increaseTime5Minutes;
+exports.increaseBlocks = increaseBlocks;
