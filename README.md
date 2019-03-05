@@ -2,6 +2,8 @@
 
 Source for external Chainlinked contract testing helpers.
 
+Click [here](https://docs.chain.link/docs/getting-started) to get started writing Chainlinked contracts.
+
 ## Usage
 
 Add to your project

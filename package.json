@@ -1,6 +1,6 @@
 {
   "name": "chainlink-test-helpers",
-  "version": "0.6.0-4",
+  "version": "0.6.0-5",
   "description": "Helpers for testing Chainlinked contracts",
   "main": "cl-helpers.js",
   "scripts": {
@@ -8,6 +8,7 @@
     "lint:fix": "./node_modules/.bin/eslint . --fix"
   },
   "license": "MIT",
+  "repository" : { "type": "git", "url": "https://github.com/thodges-gh/chainlink-test-helpers.git" },
   "dependencies": {
     "bn.js": "^4.11.8",
     "ethereumjs-abi": "^0.6.6",
