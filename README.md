@@ -22,13 +22,6 @@ const h = require("chainlink-test-helpers");
 
 Below are some examples of how to use the helper methods.
 
-#### assertActionThrows
-
-```javascript
-await h.assertActionThrows(async () => {
-  await cc.createRequest(jobId, url, path, times, {from: consumer});
-});
-```
 
 #### decodeRunRequest
 
@@ -45,14 +38,9 @@ request = h.decodeRunRequest(tx.receipt.rawLogs[3]);
 await h.fulfillOracleRequest(oc, request, response, {from: oracleNode});
 ```
 
-#### increaseBlocks
+#### linkContract
 
 ```javascript
-h.increaseBlocks(25)
-```
-
-#### increaseTime5Minutes
-
-```javascript
-h.increaseTime5Minutes();
+let link = await h.linkContract(defaultAccount)
+await link.transfer(rc.address, totalPayment)
 ```
