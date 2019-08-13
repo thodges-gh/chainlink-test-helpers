@@ -1,25 +1,26 @@
 {
   "name": "chainlink-test-helpers",
-  "version": "0.6.0-5",
+  "version": "0.6.1-beta-5",
   "description": "Helpers for testing Chainlinked contracts",
-  "main": "cl-helpers.js",
+  "main": "dist/cl-helpers.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint .",
-    "lint:fix": "./node_modules/.bin/eslint . --fix"
+    "build": "npx tsc",
+    "lint": "npx tslint src/**/*.ts",
+    "lint:fix": "npx tslint --fix src/**/*.ts"
   },
   "license": "MIT",
-  "repository" : { "type": "git", "url": "https://github.com/thodges-gh/chainlink-test-helpers.git" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thodges-gh/chainlink-test-helpers.git"
+  },
   "dependencies": {
     "bn.js": "^4.11.8",
     "ethereumjs-abi": "^0.6.6",
-    "ethereumjs-util": "^6.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^5.13.0",
-    "eslint-config-standard": "^12.0.0",
-    "eslint-plugin-import": "^2.16.0",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "ethereumjs-util": "^6.0.0",
+    "truffle-contract": "^4.0.28"
+},
+"devDependencies": {
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.0"
   }
 }
